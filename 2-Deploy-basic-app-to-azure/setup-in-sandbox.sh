@@ -41,12 +41,12 @@ echo "Allow extensions to auto-install"
 az config set extension.use_dynamic_install=yes_without_prompt
 
 echo "Create app insights"
-az monitor app-insights component create --resource-group "$RESOURCEGROUPNAME" --location westus --app js-rentals
+az monitor app-insights component create --resource-group "$RESOURCEGROUPNAME" --location eastus --app primosenergyInsights
 
 echo "Create web app and its plan"
-az webapp up --resource-group "$RESOURCEGROUPNAME" --location westus3 --name js-rentals --os-type "Linux" --runtime "node|14-lts" 
+az webapp up --resource-group "$RESOURCEGROUPNAME" --location eastus --name primosenergy --os-type "Linux" --runtime "node|18-lts"
 
 echo "Connect web app to app insights"
-az monitor app-insights component connect-webapp --resource-group "$RESOURCEGROUPNAME" --app js-rentals --web-app js-rentals
+az monitor app-insights component connect-webapp --resource-group "$RESOURCEGROUPNAME" --app primosenergyInsights --web-app primosenergy
 
 # </content_fullscript>
