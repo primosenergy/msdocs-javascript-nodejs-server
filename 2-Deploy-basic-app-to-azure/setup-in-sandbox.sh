@@ -44,7 +44,7 @@ echo "Create app insights"
 az monitor app-insights component create --resource-group "$RESOURCEGROUPNAME" --location eastus --app primosenergyInsights
 
 echo "Create web app and its plan"
-az webapp up --resource-group "$RESOURCEGROUPNAME" --location eastus --name primosenergy --os-type "Linux" --runtime "node|14-lts"
+az webapp up --resource-group "$RESOURCEGROUPNAME" --location eastus --name primosenergy --os-type "Linux" --runtime "node|18-lts"
 
 echo "Connect web app to app insights"
 az monitor app-insights component connect-webapp --resource-group "$RESOURCEGROUPNAME" --app primosenergyInsights --web-app primosenergy
